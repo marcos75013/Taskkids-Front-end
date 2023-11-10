@@ -1,0 +1,78 @@
+.login{
+    height: 100vh;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#107E96 ;
+    width: 80%;
+    margin: auto;
+    height: 60%;
+    margin-top: 15%;
+    border-radius: 10px;
+    
+    h1{
+        font-size: 24px;
+        color: whitesmoke;
+        margin-top: 0;
+        padding-bottom: 20px;
+    }
+}
+
+input{
+    background-color: whitesmoke;
+    padding:8px 45px ;
+    border-radius: 5px;
+    border-bottom: 1px black;
+}
+
+button{
+    margin-top: 40px;
+    background-color: #C2E5ED;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    font-size: 18px;
+    padding: 8px 45px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+a{
+    color: whitesmoke;
+    font-size: 12px;
+    margin-top: 10px;
+    text-decoration: underline;
+    padding-bottom: 10px;
+
+    
+}
+
+imput#email{
+    padding-left: 10px;
+}
+
+p#conditions-cgu{
+    color: #107E96;
+    font-size: 12px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+}
+
+span a{
+    color: #107E96;
+    font-size: 12px;
+    margin-top: 10px;
+    text-decoration: underline;
+    padding-bottom: 10px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
