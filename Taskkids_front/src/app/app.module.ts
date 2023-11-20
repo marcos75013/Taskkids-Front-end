@@ -12,6 +12,9 @@ import { FooterComponent } from './footer/footer.component';
 import { CGUComponent } from './cgu/cgu.component';
 import { PolitiqueConfidentialiteComponent } from './politique-confidentialite/politique-confidentialite.component';
 import { HeaderComponent } from './header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,11 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
