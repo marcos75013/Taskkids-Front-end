@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentsService } from '../services/parents.service';
+import { Parents } from '../models/parents-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-parent',
@@ -7,14 +9,33 @@ import { ParentsService } from '../services/parents.service';
   styleUrls: ['profile-parent.component.scss']
 })
 export class ProfileParentComponent implements OnInit{
+  addChild() {
+  this.router.navigate(['/add-child']);
+}
+  showNicknameParent: boolean = true;
+
+  openInputNicknameParent() {
+  this.showNicknameField = !this.showNicknameField;
+}
+  showNicknameField: boolean = false;
+  goToChildProfile() {
+  this.router.navigate(['/profile-child']);
+
+}
+profile: any;
+
   parents: ParentsService[] = [];
 
-  constructor(private parentsService: ParentsService) { }
+  constructor(private parentsService: ParentsService, private router: Router) { }
 
+  parent! : Parents ; 
 
   
   ngOnInit(): void {
-    this.getAll();
+    this.parent = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log(this.parent);
+    
+    this.getById(1);
   }
 
   getAll() {

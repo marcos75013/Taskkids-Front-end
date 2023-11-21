@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { ParentsService } from '../services/parents.service'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,8 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
   registerForm!: FormGroup;
+  
 
-  constructor(private formBuilder: FormBuilder, private parentsService: ParentsService) { } 
+  constructor(private router : Router ,private formBuilder: FormBuilder, private parentsService: ParentsService) { } 
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -32,6 +34,8 @@ export class SignInComponent implements OnInit {
     this.parentsService.create(this.registerForm.value).subscribe(
       (response: any) => {
         console.log('Inscription réussie', response);
+        this.router.navigate(['/log-in']);
+
       },
       (error: any) => { 
         console.error('Erreur lors de l’inscription', error);

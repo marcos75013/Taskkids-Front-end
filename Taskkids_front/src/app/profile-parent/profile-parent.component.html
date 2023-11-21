@@ -1,2 +1,32 @@
+<div class="container">
+    <div class="haut">
+        <div class="img-family">  
+            <img  src="/assets/images/famille_silhouette trasnparente.png" alt="">    
+        </div>
+        <h1>PROFIL {{parent.nickname?.toLocaleUpperCase()}}</h1>
+        <img id="photo-profile" [src]="parent.picture" alt="Description de l'image" width="100px">
 
+        <img id="edit" src="/assets/images/edit.png" alt="edit" width="50px" (click)="openInputNicknameParent()">
+        <div *ngIf="showNicknameField">
+            <label for="nickname"></label>
+            <input type="text" id="nickname" name="nickname" placeholder="Modifier le nom" required>
+        </div>
+        
+    </div>
+    <div class="add-child">
+    <h2>MES ENFANTS</h2>
+    <img src="/assets/images/plus.png" alt="add-child" width="70px" (click)="addChild()">
+    </div>
+    <div class="bas">
+        <div *ngFor="let child of parent.children; let i = index">
+            {{i}}
+            <img id="photo-child" [src]="child.picture" alt="Description de l'image" width="80px"(click)="goToChildProfile()" >
+            <!--<p>age de l'enfant : {{child.age}}</p>-->
+            <p id="nickname-child">{{child.nickname}}</p>
+        </div>
+
+    </div>
+
+</div>
+  
   

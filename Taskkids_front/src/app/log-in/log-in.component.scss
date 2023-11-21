@@ -1,5 +1,5 @@
 .login{
-    height: 100vh;
+    min-height: calc(100vh - 334px);
 }
 
 .container-form{
@@ -7,37 +7,42 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:#107E96 ;
+    background: linear-gradient(to bottom, #2D7B8D 40%, #85c0ce 80%);    width: 80%;
     width: 80%;
     margin: auto;
-    height: 40%;
-    margin-top: 25%;
-    border-radius: 10px;
+    border-radius: 4px 24px 4px 24px;
+    border: 2px double black;
+    padding: 40px 20px 40px 20px;
     
-    h1{
-        font-size: 24px;
-        color: whitesmoke;
-        margin-top: 0;
-        padding-bottom: 20px;
-    }
+}
+
+h1{
+    margin-top: 30%;
+    margin-bottom: 10%;
+    text-shadow: 2px 2px 4px #2D7B8D;
+    color: rgb(0, 0, 0);
+    text-align: center;
 }
 
 input{
     background-color: whitesmoke;
-    padding:8px 45px ;
+    padding:8px 30px ;
     border-radius: 5px;
     border-bottom: 1px black;
+    
 }
 
 button{
     margin-top: 40px;
-    background-color: #C2E5ED;
-    color: rgb(0, 0, 0);
+    background-color: #2D7B8D;
+    border: 1px solid #000000;
+    color: rgb(255, 255, 255);
     font-weight: 400;
     font-size: 18px;
-    padding: 8px 45px;
-    border: none;
+    padding: 8px 30px;
     border-radius: 5px;
+    margin-left: 18%;
+    
 
 }
 
@@ -46,6 +51,7 @@ a{
     font-size: 12px;
     margin-top: 10px;
     text-decoration: underline;
+    padding-left: 14px;
 
     
 }

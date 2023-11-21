@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { LogInComponent } from './log-in/log-in.component';
+import { LoginComponent } from './log-in/log-in.component';
 import { ProfileParentComponent } from './profile-parent/profile-parent.component';
 import { ProfileChildComponent } from './profile-child/profile-child.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,19 +15,21 @@ import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AddChildComponent } from './add-child/add-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     SignInComponent,
-    LogInComponent,
+    LoginComponent,
     ProfileParentComponent,
     ProfileChildComponent,
     FooterComponent,
     CGUComponent,
     PolitiqueConfidentialiteComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddChildComponent
   ],
   imports: [
     BrowserModule,

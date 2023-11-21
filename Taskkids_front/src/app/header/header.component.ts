@@ -8,9 +8,14 @@ import { HideHeaderService } from '../hide-header.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+goHome() {
+  this.router.navigate(['/profile-parent']);
+}
+
+
 
   isLoggedIn = false;
-displayHeader = true;
+  displayHeader = true;
   constructor(private router : Router, public hideHeaderService : HideHeaderService) { }
 
   scrollTo(anchor: string){

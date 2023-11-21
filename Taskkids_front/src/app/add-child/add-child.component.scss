@@ -1,0 +1,78 @@
+.create-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+
+}
+
+h1{
+    margin-top: 50px;
+    text-shadow: 2px 2px 4px #2D7B8D;
+    color: rgb(0, 0, 0);
+}
+
+label{
+    margin-bottom: 5px;
+}
+
+input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 8px;
+    border-bottom: 1px solid black;
+    border-radius: 4px;
+
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #2D7B8D 40%, #85c0ce 80%);
+    padding: 30px;
+    border: 2px double black;
+    border-radius: 4px 24px 4px 24px;
+    margin-bottom: 80px;
+
+    
+}
+
+select#sexe{
+    padding: 8px;
+    width: 88%;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+input#file-upload-button{
+    padding: 10px;
+    width: 100%;
+}
+
+input#photoUpload{
+    width: 90%;
+}
+
+
+
+
+button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #2D7B8D;
+    border: 1px solid black ;
+    color: white;
+    font-size: 16px;
+
+}

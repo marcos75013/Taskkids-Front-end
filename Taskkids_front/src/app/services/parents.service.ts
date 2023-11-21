@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ParentsService {
   private apiUrl = 'http://localhost:8080/parents'; 
+nickname: any;
 
   constructor(private http: HttpClient) { }
 
@@ -32,4 +33,8 @@ export class ParentsService {
     return this.http.post<Children>(`${this.apiUrl}/${parentId}/add-child`, child);
   }
 
+  login(email: string, password: string): Observable<Parents> {
+    return this.http.post<Parents>(this.apiUrl + '/login', { email, password });
+
+}
 }

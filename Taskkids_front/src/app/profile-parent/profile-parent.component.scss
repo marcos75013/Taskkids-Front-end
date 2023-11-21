@@ -1,0 +1,82 @@
+.container {
+    background: linear-gradient(to bottom, #2D7B8D 40%, #85c0ce 60%);
+
+}
+
+.haut {
+   display: flex;
+   flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+h1 {
+    color: black;
+    text-shadow: white 1px 1px 4px;
+}
+
+#photo-profile {
+    width: 120px;
+    border-radius: 4px;
+    border: 2px solid black;
+}
+
+h2{
+    color: black;
+    text-shadow: white 1px 1px 2px;
+    padding-left: 5%;
+    padding-bottom: 20px;
+}
+
+input {
+    width: 90%;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: 2%;  
+}
+
+input#nickname{
+    padding-left: 5%;
+}
+
+.bas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#nickname-child{
+    font-size: 20px;
+    text-align: center;
+}
+
+#photo-child {
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.img-family img{
+    padding-left: 40px;
+    filter: sepia(100%) hue-rotate(114deg) saturate(500%) brightness(70%);
+    width: 80%;
+    
+}
+
+.add-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+
+}
+
+
+
+
+
+
+
