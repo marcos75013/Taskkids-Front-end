@@ -18,8 +18,8 @@ export class ProfileParentComponent implements OnInit{
   this.showNicknameField = !this.showNicknameField;
 }
   showNicknameField: boolean = false;
-  goToChildProfile() {
-  this.router.navigate(['/profile-child']);
+  goToChildProfile(childId: number): void{
+  this.router.navigate(['/profile-child', childId]);
 
 }
 profile: any;
@@ -36,6 +36,11 @@ profile: any;
     console.log(this.parent);
     
     this.getById(1);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/main-page']);
   }
 
   getAll() {

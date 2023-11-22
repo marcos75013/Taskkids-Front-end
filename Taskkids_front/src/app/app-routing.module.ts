@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'cgu', component: CGUComponent },
   { path: 'politique-confidentialite', component: PolitiqueConfidentialiteComponent },
   { path: 'add-child', component: AddChildComponent },
+  { path: 'profile-child/:id', component: ProfileChildComponent },
   { path: '', redirectTo: '/main-page', pathMatch: 'full' }
 
 ];

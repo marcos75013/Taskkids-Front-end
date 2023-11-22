@@ -1,15 +1,60 @@
-<div class="container">
-    <div class="haut">
-        
+<div *ngIf="child" class="container">
+  <div class="haut">
+    <img
+      id="img-profile-child"
+      [src]="child.picture"
+      alt="Photo de {{ child.picture }}"
+      width="100px"
+    />
+  
+  <div id="data-child">
+    <h3>{{ child.nickname }}</h3>
+    <p>Age : {{ child.age }} ans</p>
+    <p>{{ child.gender }}</p>
+  </div>
+</div>
 
+  <div class="bas">
+    <h2>Tâches</h2>
+    <!--<div id="title-task">
+      <h4>Description</h4>
+      <h4>Points</h4>
     </div>
-    <div class="bas">
-        <h2>Tâches</h2>
-        <div class="score">
-          
-        <button>32 points</button>
-        </div>
-        <a href="#">Mettre à zéro</a>
+    <div class="desc-tasks-child" *ngFor="let task of tasks">
+      <h4>{{ task.description }}</h4>
+      <h4>{{ task.rewardAmount }}</h4> <br><br>
+      <p>{{ task.periodicity }}</p>
+      <img id="button-v" src="/assets/images/verif(1).png" alt="v"/>
+      <img id="button-x" src="/assets/images/delete carré.png" alt="x" />
+     
+    </div>-->
+    <div id="title-task" style="display: flex; justify-content: space-between; padding: 10px;">
+      <h4>Description</h4>
+      <h4>Points</h4>
     </div>
+    <div *ngFor="let task of tasks" class="desc-tasks-child" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 10px; border-radius: 5px;"  >
+      <h4 style="flex-grow: 2;">{{ task.description }}</h4>
+      <h4 style="flex-grow: 1;">{{ task.rewardAmount }}</h4>
+      <img id="button-v" src="/assets/images/verif(1).png" alt="v" style="width: 24px; height: 24px;" (click)="addToScore(task)"/>
+      <img id="button-x" src="/assets/images/delete carré.png" alt="x" style="width: 24px; height: 24px;" (click)="subtractFromScore(task)"/>
+    </div>
+    
 
+    <div class="desc-tasks">
+      
+    </div>
+    <div class="score">
+      
+
+      <img
+        id="img-man-hidden"
+        src="/assets/images/homme caché Taskkids.png"
+        alt=""
+      />
+      <div>
+        <p id="compteur">{{ child.scores }} points</p>
+      </div>
+    </div>
+    <button id="btn-score" (click)="initialScore()">Mettre à zéro</button>
+  </div>
 </div>

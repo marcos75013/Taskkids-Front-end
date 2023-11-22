@@ -13,6 +13,17 @@
 h1 {
     color: black;
     text-shadow: white 1px 1px 4px;
+    margin-bottom: 0;
+}
+
+#btn-logout{
+    background-color: #2D7B8D;
+    color: white;
+    font-size: large;
+    border: none;
+    padding: 10px 0px;
+    border-radius: 6px;
+    width: 70%;
 }
 
 #photo-profile {

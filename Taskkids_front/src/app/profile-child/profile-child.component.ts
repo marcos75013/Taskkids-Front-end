@@ -3,6 +3,10 @@ import { ChildrenService } from '../services/children.service';
 import { Children } from '../models/children-model'; 
 import { Tasks } from '../models/tasks.model';
 import { TasksService } from '../services/tasks.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-profile-child',
@@ -10,18 +14,78 @@ import { TasksService } from '../services/tasks.service';
   styleUrls: ['./profile-child.component.scss']
 })
 export class ProfileChildComponent implements OnInit {
+
+  score: number = 0;
+
   childrenList: Children[] = [];
-  tasksList: Tasks[] = [];
   tasksService: any;
+  child!: Children;
+  tasks: Tasks[] = [];
 
-  constructor(private childrenService: ChildrenService, tasksService: TasksService) { }
 
-  ngOnInit(): void {
-    this.getAll();
-    thisgetAllTasks();
+  constructor(private childrenService: ChildrenService, tasksService: TasksService, private route: ActivatedRoute) { }
+
+
+ngOnInit(): void {
+  this.route.params.subscribe(params => {
+    const childId = +params['id'];
+    this.getChildData(childId);
+    this.getTaskById(childId);
+  });
+}
+  getChildData(childId: number) {
+    this.childrenService.getById(childId).subscribe(
+      (child: Children) => {
+        this.child = child;
+      },
+      (error: any) => {
+        console.error("Erreur lors de la récupération de l\'enfant", error);
+      }
+    );
+    
   }
 
-  getAll() {
+  getTaskById(id: number) {
+    this.childrenService.getTasksByChildId(id).subscribe(
+      (task: Tasks[]) => {
+        this.tasks = task;
+        console.log(this.tasks);
+
+      },
+      (error: any) => {
+        console.error('Erreur lors de la récupération de la tâche', error);
+      }
+    );
+  }
+
+  addToScore(task: Tasks): void {
+    if (this.child && task.rewardAmount) {
+      this.child.scores = (this.child.scores || 0) + task.rewardAmount;
+    }
+  }
+  
+  subtractFromScore(task: Tasks): void {
+    if (this.child && task.rewardAmount) {
+      this.child.scores = (this.child.scores || 0) - task.rewardAmount;
+      if (this.child.scores < 0) {
+        this.child.scores = 0; 
+      }
+    }
+  }
+  
+
+  initialScore() {
+    ;
+  }
+
+  }
+
+    
+    
+
+  
+
+  /*getAll() {
     this.childrenService.getAll().subscribe(
       (children: Children[]) => {
         this.childrenList = children;
@@ -121,4 +185,14 @@ export class ProfileChildComponent implements OnInit {
 function thisgetAllTasks() {
   throw new Error('Function not implemented.');
 }
+  } */
+
+ 
+/*function addTaskToChild(childId: number, number: any, task: any, any: any) {
+  throw new Error('Function not implemented.');
+}
+
+function getTasksData(childId: number, number: any) {
+  throw new Error('Function not implemented.');
+}*/
 

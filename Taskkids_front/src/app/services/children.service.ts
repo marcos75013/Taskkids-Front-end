@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Children } from '../models/children-model'; // Assure-toi d'avoir un modèle Child correspondant
-
+import { Children } from '../models/children-model'; 
+import { Tasks } from '../models/tasks.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +27,12 @@ export class ChildrenService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  addTaskToChild(childId: number, task: any): Observable<Children> { 
+  addTaskToChild(childId: number, task: Tasks): Observable<Children> {
     return this.http.post<Children>(`${this.apiUrl}/${childId}/add-task`, task);
   }
+
+  getTasksByChildId(childId: number): Observable<Tasks[]> {
+    return this.http.get<Tasks[]>(`${this.apiUrl}/${childId}/tasks`);
+  }
+  
 }

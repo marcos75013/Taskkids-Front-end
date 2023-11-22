@@ -1,3 +1,5 @@
+
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,8 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
-toPage(arg0: string) {
-throw new Error('Method not implemented.');
+goToForm(arg0: string) {
+  this.router.navigate(['/log-in']);
 }
+  constructor(private router: Router) {
+    //this.router.navigate(['/log-in']);
+  }
+  
 
 }

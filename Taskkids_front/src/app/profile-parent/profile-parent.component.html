@@ -4,6 +4,8 @@
             <img  src="/assets/images/famille_silhouette trasnparente.png" alt="">    
         </div>
         <h1>PROFIL {{parent.nickname?.toLocaleUpperCase()}}</h1>
+        <button id="btn-logout" (click)="logout()">Déconnexion</button>
+
         <img id="photo-profile" [src]="parent.picture" alt="Description de l'image" width="100px">
 
         <img id="edit" src="/assets/images/edit.png" alt="edit" width="50px" (click)="openInputNicknameParent()">
@@ -20,11 +22,11 @@
     <div class="bas">
         <div *ngFor="let child of parent.children; let i = index">
             {{i}}
-            <img id="photo-child" [src]="child.picture" alt="Description de l'image" width="80px"(click)="goToChildProfile()" >
+            <img id="photo-child" [src]="child.picture" alt="Description de l'image" width="80px" (click)="goToChildProfile(child.id)">
             <!--<p>age de l'enfant : {{child.age}}</p>-->
             <p id="nickname-child">{{child.nickname}}</p>
         </div>
-
+        
     </div>
 
 </div>
