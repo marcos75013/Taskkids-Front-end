@@ -16,18 +16,6 @@
 
   <div class="bas">
     <h2>Tâches</h2>
-    <!--<div id="title-task">
-      <h4>Description</h4>
-      <h4>Points</h4>
-    </div>
-    <div class="desc-tasks-child" *ngFor="let task of tasks">
-      <h4>{{ task.description }}</h4>
-      <h4>{{ task.rewardAmount }}</h4> <br><br>
-      <p>{{ task.periodicity }}</p>
-      <img id="button-v" src="/assets/images/verif(1).png" alt="v"/>
-      <img id="button-x" src="/assets/images/delete carré.png" alt="x" />
-     
-    </div>-->
     <div id="title-task" style="display: flex; justify-content: space-between; padding: 10px;">
       <h4>Description</h4>
       <h4>Points</h4>
@@ -38,7 +26,16 @@
       <img id="button-v" src="/assets/images/verif(1).png" alt="v" style="width: 24px; height: 24px;" (click)="addToScore(task)"/>
       <img id="button-x" src="/assets/images/delete carré.png" alt="x" style="width: 24px; height: 24px;" (click)="subtractFromScore(task)"/>
     </div>
-    
+    <img id="btn-add-task" src="/assets/images/filled-plus-2-math.png" alt="" width="35px" (click)="openInputFieldTask()">
+    <div class="formTask" *ngIf="showFieldTasks">
+      <form [formGroup]="newTaskForm">
+        <label for="description"></label>
+        <input type="text" id="description" formControlName="description" placeholder="Décrivez la nouvelle tâche" required>
+        <label for="nb-points"></label>
+        <input type="number" id="nb-points" formControlName="rewardAmount" placeholder="Nombre de points" required>
+        <button id="btn-save" (click)="saveNewTask()">Enregistrer</button>
+      </form>
+    </div>
 
     <div class="desc-tasks">
       

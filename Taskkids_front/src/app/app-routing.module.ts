@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CGUComponent } from './cgu/cgu.component';
 import { PolitiqueConfidentialiteComponent } from './politique-confidentialite/politique-confidentialite.component';
 import { AddChildComponent } from './add-child/add-child.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'politique-confidentialite', component: PolitiqueConfidentialiteComponent },
   { path: 'add-child', component: AddChildComponent },
   { path: 'profile-child/:id', component: ProfileChildComponent },
+  { path: 'add-task', component: AddTaskComponent },
   { path: '', redirectTo: '/main-page', pathMatch: 'full' }
 
 ];

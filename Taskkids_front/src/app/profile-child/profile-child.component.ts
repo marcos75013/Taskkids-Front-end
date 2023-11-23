@@ -5,6 +5,7 @@ import { Tasks } from '../models/tasks.model';
 import { TasksService } from '../services/tasks.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -14,25 +15,47 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-child.component.scss']
 })
 export class ProfileChildComponent implements OnInit {
-
-  score: number = 0;
-
-  childrenList: Children[] = [];
-  tasksService: any;
-  child!: Children;
-  tasks: Tasks[] = [];
-
-
-  constructor(private childrenService: ChildrenService, tasksService: TasksService, private route: ActivatedRoute) { }
-
-
-ngOnInit(): void {
-  this.route.params.subscribe(params => {
-    const childId = +params['id'];
-    this.getChildData(childId);
-    this.getTaskById(childId);
+  newTaskForm: FormGroup = new FormGroup({
+    description: new FormControl('', [Validators.required]),
+    rewardAmount: new FormControl('', [Validators.required, Validators.min(1)]),
   });
-}
+ 
+  
+    showFieldTasks: boolean = false;
+    score: number = 0;
+  
+    childrenList: Children[] = [];
+    tasksService: any;
+    child!: Children;
+    tasks: Tasks[] = [];
+
+  constructor(private childrenService: ChildrenService, tasksService: TasksService, private route: ActivatedRoute, private router: Router) { }
+
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const childId = +params['id'];
+      this.getChildData(childId);
+      this.getTaskById(childId);
+    });
+  }
+
+  saveNewTask() {
+    if (this.newTaskForm.invalid) {
+      console.error('Formulaire invalide');
+      return;
+    }
+
+    const taskData = this.newTaskForm.value;
+    this.addTaskToChild(this.child.id, taskData);
+  }
+
+   openInputFieldTask() {
+    this.showFieldTasks = !this.showFieldTasks;}
+
+ 
+
+  
   getChildData(childId: number) {
     this.childrenService.getById(childId).subscribe(
       (child: Children) => {
@@ -75,8 +98,35 @@ ngOnInit(): void {
   
 
   initialScore() {
-    ;
+    if (this.child) {
+      this.child.scores = 0; 
+     
+      this.childrenService.updateChildScore(this.child.id, this.child).subscribe(
+        (response: any) => {
+          console.log('Score réinitialisé avec succès', response);
+        
+        },
+        (error: any) => {
+          console.error('Erreur lors de la réinitialisation du score', error);
+        }
+      );
+    }
   }
+
+  addTaskToChild(childId: number, task: any) {
+    this.childrenService.addTaskToChild(childId, task).subscribe(
+      (updatedChild: Children) => {
+        this.tasks.push(task);
+        
+      },
+      (error: any) => {
+        console.error('Erreur lors de l\'ajout de la tâche à l\'enfant', error);
+      }
+    );
+  }
+
+  
+  
 
   }
 

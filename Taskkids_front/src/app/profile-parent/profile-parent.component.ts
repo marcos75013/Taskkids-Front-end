@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['profile-parent.component.scss']
 })
 export class ProfileParentComponent implements OnInit{
+
   addChild() {
   this.router.navigate(['/add-child']);
 }
-  showNicknameParent: boolean = true;
+  //showNicknameParent: boolean = true;
 
   openInputNicknameParent() {
   this.showNicknameField = !this.showNicknameField;
@@ -42,6 +43,10 @@ profile: any;
     localStorage.clear();
     this.router.navigate(['/main-page']);
   }
+
+  savePictureParent() {
+     
+    }
 
   getAll() {
     this.parentsService.getAll().subscribe(

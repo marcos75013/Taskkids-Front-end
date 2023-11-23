@@ -5,6 +5,7 @@
     flex-direction: column;
     width: 100%;
     
+    
 }
 
 .haut {
@@ -18,7 +19,7 @@
 }
 
 .bas {
-    background-color: #DFF0F4;
+    background-color: #b8e0e9;
     flex: 0 0 75%; 
 }
 
@@ -57,7 +58,6 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    //background-color: #2D7B8D;
     color: white;
     font-size: large;
     border: none;
@@ -67,6 +67,7 @@ button{
 }
 
 .score{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -83,41 +84,24 @@ a{
 }
 
 img#button-v{
-    //background-color: green;
-    //padding: 5px;
-    //border-radius: 50%;
     width: 33px;
 }
 
 img#button-x{
-    //background-color: red;
-    //padding: 5px;
-   // border-radius: 50%;
     width: 35px;
     height: 35px;
     
 }
 
-/*.desc-tasks-child{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 20px;
-
-}*/
 
 .desc-tasks-child {
-    border: 1px solid #ccc; /* Replace with colors based on level */
+    border: 1px solid #2D7B8D;
     transition: background-color 0.3s ease;
   }
   
   .desc-tasks-child:hover {
-    background-color: #f0f0f0; /* On hover effect */
+    background-color: #f0f0f0; 
   }
-  
-  /* Example of background colors for tasks based on level */
   .blue { background-color: #4A90E2; }
   .orange { background-color: #F5A623; }
   .green { background-color: #7ED321; }
@@ -137,7 +121,6 @@ img#button-x{
     flex-direction: row;
     justify-content: center;
     gap: 20px;
-    
     align-items: center;
     font-size: 18px;
     font-weight: bold;
@@ -146,8 +129,8 @@ img#button-x{
 #img-man-hidden{
     position: absolute;
     width: 220px;
-    top: 712px;
-    left: 85px;
+    top: 0;
+    left: 50%;
 }
 
 #compteur{
@@ -157,13 +140,51 @@ img#button-x{
     border: none;
     padding: 10px 70px 5px 70px;   
     border-radius: 6px;
+    width: 60%;
+    text-align: center;
+    margin-right: 60px;
 }
 
 button#btn-score{
     color: #000000;
     font-size: large;
     border: none;
-    float: center;
     padding: 0;
     padding-bottom: 10px;
+    background-color: #b8e0e9;
+}
+
+#btn-add-task{
+    padding-left: 20px;
+}
+
+#btn-save{
+    background-color: #2D7B8D;
+    color: white;
+    font-size: large;
+    border: none;
+    padding: 10px 0px;
+    border-radius: 6px;
+    width: 40%;
+}
+
+input{
+    width: 90%;
+    height: 30px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    
+}
+
+.formTask{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #2D7B8D 40%, #85c0ce 80%);
+    padding: 30px;
+    border: 2px double black;
+    border-radius: 4px 24px 4px 24px;
+    margin: 20px;
 }

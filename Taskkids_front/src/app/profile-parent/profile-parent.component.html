@@ -6,12 +6,13 @@
         <h1>PROFIL {{parent.nickname?.toLocaleUpperCase()}}</h1>
         <button id="btn-logout" (click)="logout()">Déconnexion</button>
 
-        <img id="photo-profile" [src]="parent.picture" alt="Description de l'image" width="100px">
+        <img id="photo-profile" [src]="parent.picture" alt="picture" width="100px">
 
         <img id="edit" src="/assets/images/edit.png" alt="edit" width="50px" (click)="openInputNicknameParent()">
         <div *ngIf="showNicknameField">
-            <label for="nickname"></label>
-            <input type="text" id="nickname" name="nickname" placeholder="Modifier le nom" required>
+            <label for="picture"></label>
+            <input type="file" id="picture" name="picture" required>
+            <button id="btn-save" (click)="savePictureParent()">Enregistrer</button>
         </div>
         
     </div>
@@ -23,7 +24,6 @@
         <div *ngFor="let child of parent.children; let i = index">
             {{i}}
             <img id="photo-child" [src]="child.picture" alt="Description de l'image" width="80px" (click)="goToChildProfile(child.id)">
-            <!--<p>age de l'enfant : {{child.age}}</p>-->
             <p id="nickname-child">{{child.nickname}}</p>
         </div>
         

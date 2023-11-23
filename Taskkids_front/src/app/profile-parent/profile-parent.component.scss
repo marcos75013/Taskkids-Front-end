@@ -1,6 +1,6 @@
 .container {
     background: linear-gradient(to bottom, #2D7B8D 40%, #85c0ce 60%);
-
+    height: 77vh;
 }
 
 .haut {
@@ -14,6 +14,7 @@ h1 {
     color: black;
     text-shadow: white 1px 1px 4px;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 #btn-logout{
@@ -36,7 +37,8 @@ h2{
     color: black;
     text-shadow: white 1px 1px 2px;
     padding-left: 5%;
-    padding-bottom: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 input {
@@ -61,6 +63,8 @@ input#nickname{
 #nickname-child{
     font-size: 20px;
     text-align: center;
+    margin-bottom: 0;
+    margin-top: 5px;
 }
 
 #photo-child {
@@ -80,7 +84,7 @@ input#nickname{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
 
 }

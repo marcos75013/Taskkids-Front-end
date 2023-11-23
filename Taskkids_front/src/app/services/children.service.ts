@@ -7,6 +7,9 @@ import { Tasks } from '../models/tasks.model';
   providedIn: 'root'
 })
 export class ChildrenService {
+  /*create(value: any) {
+    throw new Error('Method not implemented.');
+  }*/
   private apiUrl = 'http://localhost:8080/children'; 
 
   constructor(private http: HttpClient) { }
@@ -34,5 +37,14 @@ export class ChildrenService {
   getTasksByChildId(childId: number): Observable<Tasks[]> {
     return this.http.get<Tasks[]>(`${this.apiUrl}/${childId}/tasks`);
   }
+
+  create(child: Children): Observable<Children> {
+    return this.http.post<Children>(this.apiUrl, child);
+  }
+
+  updateChildScore(childId: number, childData: Children): Observable<Children> {
+  return this.http.patch<Children>(`${this.apiUrl}/children/${childId}`, childData);
+}
+
   
 }

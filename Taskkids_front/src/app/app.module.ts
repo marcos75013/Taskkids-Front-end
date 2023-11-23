@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AddChildComponent } from './add-child/add-child.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddChildComponent } from './add-child/add-child.component';
     CGUComponent,
     PolitiqueConfidentialiteComponent,
     HeaderComponent,
-    AddChildComponent
+    AddChildComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
