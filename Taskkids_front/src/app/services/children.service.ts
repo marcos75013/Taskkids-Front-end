@@ -46,5 +46,9 @@ export class ChildrenService {
   return this.http.patch<Children>(`${this.apiUrl}/children/${childId}`, childData);
 }
 
+deleteTask(taskId: number): Observable<void> {
+  return this.http.delete<void>(`http://localhost:8080/tasks/${taskId}`);
+
   
+}
 }

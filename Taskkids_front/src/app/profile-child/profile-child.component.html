@@ -20,13 +20,23 @@
       <h4>Description</h4>
       <h4>Points</h4>
     </div>
-    <div *ngFor="let task of tasks" class="desc-tasks-child" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 10px; border-radius: 5px;"  >
-      <h4 style="flex-grow: 2;">{{ task.description }}</h4>
-      <h4 style="flex-grow: 1;">{{ task.rewardAmount }}</h4>
-      <img id="button-v" src="/assets/images/verif(1).png" alt="v" style="width: 24px; height: 24px;" (click)="addToScore(task)"/>
-      <img id="button-x" src="/assets/images/delete carré.png" alt="x" style="width: 24px; height: 24px;" (click)="subtractFromScore(task)"/>
-    </div>
+    <div *ngFor="let task of tasks; let i = index" 
+     [ngClass]="{'bg-color-1': i % 3 === 0, 'bg-color-2': i % 3 === 1, 'bg-color-3': i % 3 === 2}"
+     class="desc-tasks-child" 
+     style="display: flex; justify-content: space-between; align-items: center; padding: 3px 5px; margin-bottom: 10px; border-radius: 5px;"
+     (click)="selectedTask = task">
+     <button *ngIf="selectedTask === task" class="delete-button" (click)="deleteTask(task)">Supprimer la tâche </button>
+
+
+  
+  <h4 style="flex-grow: 2;">{{ task.description }}</h4>
+  <h4 id="points-task" style="flex-grow: 1;">{{ task.rewardAmount }}</h4>
+  <img id="button-v" src="/assets/images/emojiContent.png" alt="v" style="width: 33px; height: 33px;" (click)="addToScore(task)"/>
+  <img id="button-x" src="/assets/images/emojiAngry.png" alt="x" style="width: 24px; height: 24px;" (click)="subtractFromScore(task)"/>
+
+</div>
     <img id="btn-add-task" src="/assets/images/filled-plus-2-math.png" alt="" width="35px" (click)="openInputFieldTask()">
+    
     <div class="formTask" *ngIf="showFieldTasks">
       <form [formGroup]="newTaskForm">
         <label for="description"></label>
@@ -45,7 +55,7 @@
 
       <img
         id="img-man-hidden"
-        src="/assets/images/homme caché Taskkids.png"
+        src="/assets/images/homme caché Taskkids1.png"
         alt=""
       />
       <div>

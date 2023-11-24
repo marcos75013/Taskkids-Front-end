@@ -15,6 +15,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./profile-child.component.scss']
 })
 export class ProfileChildComponent implements OnInit {
+
   newTaskForm: FormGroup = new FormGroup({
     description: new FormControl('', [Validators.required]),
     rewardAmount: new FormControl('', [Validators.required, Validators.min(1)]),
@@ -23,7 +24,8 @@ export class ProfileChildComponent implements OnInit {
   
     showFieldTasks: boolean = false;
     score: number = 0;
-  
+    selectedTask: Tasks | null = null;
+
     childrenList: Children[] = [];
     tasksService: any;
     child!: Children;
@@ -125,10 +127,27 @@ export class ProfileChildComponent implements OnInit {
     );
   }
 
+  deleteTask(task: Tasks) {
+    if (!task || !task.id) {
+      console.error('Erreur : Aucune tâche spécifiée pour la suppression');
+      return;
+    }
   
+    this.childrenService.deleteTask(task.id).subscribe(
+      () => {
+        console.log('Tâche supprimée avec succès');
+        this.tasks = this.tasks.filter(t => t.id !== task.id); 
+        this.selectedTask = null;
+      },
+      (error: any) => {
+        console.error('Erreur lors de la suppression de la tâche', error);
+      }
+    );
+  }
   
 
-  }
+  
+  
 
     
     
@@ -245,4 +264,4 @@ function thisgetAllTasks() {
 function getTasksData(childId: number, number: any) {
   throw new Error('Function not implemented.');
 }*/
-
+}

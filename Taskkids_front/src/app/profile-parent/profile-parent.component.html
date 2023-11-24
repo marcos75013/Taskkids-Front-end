@@ -21,8 +21,7 @@
     <img src="/assets/images/plus.png" alt="add-child" width="70px" (click)="addChild()">
     </div>
     <div class="bas">
-        <div *ngFor="let child of parent.children; let i = index">
-            {{i}}
+        <div *ngFor="let child of parent.children; ">
             <img id="photo-child" [src]="child.picture" alt="Description de l'image" width="80px" (click)="goToChildProfile(child.id)">
             <p id="nickname-child">{{child.nickname}}</p>
         </div>

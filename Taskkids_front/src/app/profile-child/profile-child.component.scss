@@ -3,7 +3,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    min-height: 100vh;
     
     
 }
@@ -19,7 +19,7 @@
 }
 
 .bas {
-    background-color: #b8e0e9;
+    background-color: #c4dde2;
     flex: 0 0 75%; 
 }
 
@@ -47,6 +47,12 @@ h3{
 
 h4{
     margin: 5px
+}
+
+#points-task{
+    text-align: end;
+    padding-right: 40px;
+    
 }
 
 p{
@@ -85,6 +91,7 @@ a{
 
 img#button-v{
     width: 33px;
+    padding-right: 10px;
 }
 
 img#button-x{
@@ -97,10 +104,13 @@ img#button-x{
 .desc-tasks-child {
     border: 1px solid #2D7B8D;
     transition: background-color 0.3s ease;
+    margin: 0 10px;
+    padding: 0;
   }
   
   .desc-tasks-child:hover {
-    background-color: #f0f0f0; 
+    background-color: #2D7B8D; 
+    color: white;
   }
   .blue { background-color: #4A90E2; }
   .orange { background-color: #F5A623; }
@@ -128,9 +138,9 @@ img#button-x{
 
 #img-man-hidden{
     position: absolute;
-    width: 220px;
-    top: 0;
-    left: 50%;
+    width: 130px;
+    top: -49px;
+    left: 35%;
 }
 
 #compteur{
@@ -188,3 +198,51 @@ input{
     border-radius: 4px 24px 4px 24px;
     margin: 20px;
 }
+
+.bg-color-1 {
+    background-color: #ffffff; 
+  }
+
+.bg-color-1:hover {
+    background-color: #4A90E2; 
+    color: white;
+  }  
+  
+  .bg-color-2 {
+    background-color: #ffffff; 
+  }
+
+.bg-color-2:hover {
+        background-color: #F5A623; 
+        color: white;
+    }
+  
+  .bg-color-3 {
+    background-color: #ffffff; 
+  }
+
+.bg-color-3:hover {
+    background-color: #7ED321; 
+    color: white;
+  }
+
+  .delete-button {
+    display: none;
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+    background-color: #ff0000;
+    width: 70%;
+    padding: 3px 5px;
+}
+
+.desc-tasks-child:hover .delete-button {
+    display: block;
+}
+
+
+
+  
+ 
+
+

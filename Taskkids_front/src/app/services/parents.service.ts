@@ -29,7 +29,7 @@ nickname: any;
     return this.http.put<Parents>(`${this.apiUrl}/${id}`, parents);
   }
 
-  addChildToParent(parentId: number, child: Children): Observable<Children> {
+  addChildToParent(parentId: any, child: Children): Observable<Children> {
     return this.http.post<Children>(`${this.apiUrl}/${parentId}/add-child`, child);
   }
 

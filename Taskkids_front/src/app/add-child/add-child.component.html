@@ -1,12 +1,11 @@
 <div class="create-child">
     <h1>Ajouter un enfant</h1>
-
     <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
       <div class="container-form">
         <label for="nickname"></label>
         <input type="text" id="nickname" formControlName="nickname" required placeholder="Surnon" /><br /><br />
         <label for="age"></label>
-        <input type="number" id="age" formControlName="age" required placeholder="age" /><br /><br />
+        <input type="" id="age" formControlName="age" required placeholder="age" /><br /><br />
         <label for="gender"></label>
     <select id="gender" name="gender" formControlName="gender" required>
         <option value ="">--Choisir un genre--</option>
